@@ -1,51 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Monika G | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Scrollable Resume Animation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Scroll Animation Canvas -->
-  <div class="animation-container">
-    <canvas id="scrollCanvas"></canvas>
-  </div>
-
-  <!-- Content Sections -->
-  <section class="content">
-    <h1>Monika G</h1>
-    <p>Electronics and Communication Engineering Student</p>
-    <p>IoT Smart Home Project | Programming Enthusiast</p>
-  </section>
-
-  <section class="content">
-    <h2>About Me</h2>
-    <p>
-      Passionate ECE student transitioning into IT and software development.
-      Interested in backend development and AI integration.
-    </p>
-  </section>
-
-  <section class="content">
-    <h2>Projects</h2>
-    <p>Smart Home Automation using IoT</p>
-  </section>
-
-  <!-- Chatbot -->
-  <div class="chatbot-button" onclick="toggleChat()">💬</div>
-
-  <div class="chatbot" id="chatbot">
-    <div class="chat-header">
-      Resume Assistant
-      <span onclick="toggleChat()">✖</span>
-    </div>
-    <div class="chat-body" id="chat-body"></div>
-    <div class="chat-input">
-      <input type="text" id="user-input" placeholder="Ask about my resume..." />
-      <button onclick="sendMessage()">Send</button>
-    </div>
+  <div class="scroll-container">
+    <canvas id="animationCanvas"></canvas>
   </div>
 
   <script src="script.js"></script>
