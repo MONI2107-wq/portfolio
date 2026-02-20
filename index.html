@@ -6,95 +6,98 @@
 <title>Monika G | Portfolio</title>
 
 <style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        font-family: 'Segoe UI', sans-serif;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
 
-    body{
-        background:#ffffff;
-        color:#111;
-        overflow-x:hidden;
-    }
+body{
+    background:#000;
+    color:#ffffff;
+    overflow-x:hidden;
+}
 
-    /* Canvas Background */
-    #animationCanvas{
-        position:fixed;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        z-index:-1;
-        opacity:0.08; /* Watermark Transparency */
-        pointer-events:none;
-    }
+/* Canvas Animation */
+#animationCanvas{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    opacity:0.35;   /* Increased visibility */
+    pointer-events:none;
+}
 
-    /* Content Container */
-    .container{
-        width:85%;
-        max-width:1000px;
-        margin:auto;
-        padding:60px 0;
-    }
+/* Main Container */
+.container{
+    width:85%;
+    max-width:1000px;
+    margin:auto;
+    padding:80px 0;
+}
 
-    section{
-        margin-bottom:80px;
-    }
+/* Sections */
+section{
+    margin-bottom:100px;
+}
 
-    h1{
-        font-size:48px;
-        font-weight:700;
-        margin-bottom:10px;
-    }
+/* Transparent Resume Blocks */
+.glass{
+    background:rgba(0,0,0,0.35);
+    backdrop-filter: blur(6px);
+    padding:30px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,0.15);
+}
 
-    h2{
-        font-size:28px;
-        margin-bottom:20px;
-        border-bottom:2px solid #000;
-        display:inline-block;
-        padding-bottom:5px;
-    }
+/* Typography */
+h1{
+    font-size:52px;
+    font-weight:700;
+    margin-bottom:15px;
+}
 
-    p{
-        line-height:1.6;
-        font-size:16px;
-        margin-bottom:10px;
-    }
+h2{
+    font-size:30px;
+    margin-bottom:20px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    opacity:0.9;
+}
 
-    ul{
-        padding-left:20px;
-    }
+p{
+    font-size:17px;
+    line-height:1.7;
+    margin-bottom:10px;
+}
 
-    li{
-        margin-bottom:8px;
-    }
+ul{
+    padding-left:20px;
+}
 
-    .card{
-        background:rgba(255,255,255,0.85);
-        padding:25px;
-        border-radius:12px;
-        box-shadow:0 8px 25px rgba(0,0,0,0.08);
-        backdrop-filter: blur(4px);
-    }
+li{
+    margin-bottom:8px;
+}
 
-    .skills span{
-        display:inline-block;
-        padding:8px 15px;
-        background:#111;
-        color:#fff;
-        border-radius:20px;
-        font-size:14px;
-        margin:5px 5px 0 0;
-    }
+/* Skills */
+.skills span{
+    display:inline-block;
+    padding:10px 18px;
+    border:1px solid #fff;
+    border-radius:25px;
+    font-size:14px;
+    margin:6px 6px 0 0;
+}
 
-    footer{
-        text-align:center;
-        padding:30px 0;
-        font-size:14px;
-        opacity:0.6;
-    }
+/* Footer */
+footer{
+    text-align:center;
+    padding:40px 0;
+    opacity:0.6;
+}
 
 </style>
 </head>
@@ -105,84 +108,72 @@
 
 <div class="container">
 
-    <!-- Header -->
-    <section>
-        <div class="card">
-            <h1>Monika G</h1>
-            <p><strong>B.E - Electronics and Communication Engineering</strong></p>
-            <p>3rd Year Student | Interested in IT & Software Development</p>
-            <p>Email: yourmail@email.com | Phone: +91 XXXXX XXXXX</p>
-            <p>LinkedIn: linkedin.com/in/yourprofile</p>
-        </div>
-    </section>
+<!-- Header -->
+<section class="glass">
+    <h1>Monika G</h1>
+    <p><strong>B.E - Electronics and Communication Engineering</strong></p>
+    <p>3rd Year Student | Interested in IT & Software Development</p>
+    <p>Email: yourmail@email.com | Phone: +91 XXXXX XXXXX</p>
+    <p>LinkedIn: linkedin.com/in/yourprofile</p>
+</section>
 
-    <!-- About -->
-    <section>
-        <h2>About Me</h2>
-        <div class="card">
-            <p>
-                Motivated Electronics and Communication Engineering student
-                with strong interest in programming and IT industry.
-                Passionate about building smart solutions and continuously
-                learning new technologies.
-            </p>
-        </div>
-    </section>
+<!-- About -->
+<section class="glass">
+    <h2>About Me</h2>
+    <p>
+        Motivated Electronics and Communication Engineering student 
+        passionate about software development and IT solutions.
+        Strong problem-solving mindset with hands-on project experience.
+    </p>
+</section>
 
-    <!-- Education -->
-    <section>
-        <h2>Education</h2>
-        <div class="card">
-            <p><strong>B.E - Electronics and Communication Engineering</strong></p>
-            <p>XYZ Engineering College</p>
-            <p>Year: 2023 - 2027</p>
-        </div>
-    </section>
+<!-- Education -->
+<section class="glass">
+    <h2>Education</h2>
+    <p><strong>B.E - Electronics and Communication Engineering</strong></p>
+    <p>XYZ Engineering College</p>
+    <p>2023 - 2027</p>
+</section>
 
-    <!-- Skills -->
-    <section>
-        <h2>Technical Skills</h2>
-        <div class="card skills">
-            <span>C Programming</span>
-            <span>Python</span>
-            <span>Java</span>
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>IoT</span>
-            <span>Embedded Systems</span>
-        </div>
-    </section>
+<!-- Skills -->
+<section class="glass">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+        <span>C</span>
+        <span>Python</span>
+        <span>Java</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>IoT</span>
+        <span>Embedded Systems</span>
+    </div>
+</section>
 
-    <!-- Projects -->
-    <section>
-        <h2>Projects</h2>
-        <div class="card">
-            <p><strong>Smart Home Automation using IoT</strong></p>
-            <ul>
-                <li>Developed IoT-based smart home system.</li>
-                <li>Controlled appliances remotely using internet.</li>
-                <li>Improved energy efficiency and automation.</li>
-            </ul>
-        </div>
-    </section>
+<!-- Projects -->
+<section class="glass">
+    <h2>Projects</h2>
+    <p><strong>Smart Home Automation using IoT</strong></p>
+    <ul>
+        <li>Designed IoT-based home automation system.</li>
+        <li>Enabled remote appliance control.</li>
+        <li>Improved energy efficiency and monitoring.</li>
+    </ul>
+</section>
 
-    <!-- Certifications -->
-    <section>
-        <h2>Certifications</h2>
-        <div class="card">
-            <ul>
-                <li>Programming Certification</li>
-                <li>IoT Workshop Participation</li>
-                <li>Technical Seminar Attendance</li>
-            </ul>
-        </div>
-    </section>
+<!-- Certifications -->
+<section class="glass">
+    <h2>Certifications</h2>
+    <ul>
+        <li>Programming Certification</li>
+        <li>IoT Workshop</li>
+        <li>Technical Seminar Participation</li>
+    </ul>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        © 2026 Monika G | Portfolio Website
-    </footer>
+<footer>
+    © 2026 Monika G | Portfolio
+</footer>
 
 </div>
 
@@ -191,13 +182,14 @@ const frameCount = 240;
 const canvas = document.getElementById('animationCanvas');
 const context = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function resizeCanvas(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
 
 const images = [];
-const imageSeq = {
-    frame: 0
-};
+const imageSeq = { frame: 0 };
 
 for (let i = 1; i <= frameCount; i++) {
     const img = new Image();
@@ -206,14 +198,14 @@ for (let i = 1; i <= frameCount; i++) {
     images.push(img);
 }
 
-function render() {
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(images[imageSeq.frame], 0, 0, canvas.width, canvas.height);
+function render(){
+    context.clearRect(0,0,canvas.width,canvas.height);
+    context.drawImage(images[imageSeq.frame],0,0,canvas.width,canvas.height);
 }
 
 images[0].onload = render;
 
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll',()=>{
     const scrollTop = document.documentElement.scrollTop;
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     const scrollFraction = scrollTop / maxScroll;
@@ -225,9 +217,8 @@ window.addEventListener('scroll', () => {
     requestAnimationFrame(render);
 });
 
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+window.addEventListener('resize',()=>{
+    resizeCanvas();
     render();
 });
 </script>
