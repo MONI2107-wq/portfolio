@@ -15,11 +15,11 @@
 
 body{
     background:#000;
-    color:#ffffff;
+    color:#fff;
     overflow-x:hidden;
 }
 
-/* Canvas Animation */
+/* Canvas */
 #animationCanvas{
     position:fixed;
     top:0;
@@ -27,78 +27,48 @@ body{
     width:100%;
     height:100%;
     z-index:-1;
-    opacity:0.35;   /* Increased visibility */
-    pointer-events:none;
+    opacity:0.6;   /* Strong visibility */
 }
 
-/* Main Container */
+/* Content */
 .container{
     width:85%;
     max-width:1000px;
     margin:auto;
-    padding:80px 0;
+    padding:100px 0;
 }
 
-/* Sections */
 section{
-    margin-bottom:100px;
+    margin-bottom:120px;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(8px);
+    padding:40px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.2);
 }
 
-/* Transparent Resume Blocks */
-.glass{
-    background:rgba(0,0,0,0.35);
-    backdrop-filter: blur(6px);
-    padding:30px;
-    border-radius:16px;
-    border:1px solid rgba(255,255,255,0.15);
-}
-
-/* Typography */
 h1{
-    font-size:52px;
-    font-weight:700;
+    font-size:56px;
     margin-bottom:15px;
 }
 
 h2{
     font-size:30px;
     margin-bottom:20px;
-    text-transform:uppercase;
-    letter-spacing:2px;
-    opacity:0.9;
 }
 
 p{
-    font-size:17px;
     line-height:1.7;
     margin-bottom:10px;
 }
 
-ul{
-    padding-left:20px;
-}
-
-li{
-    margin-bottom:8px;
-}
-
-/* Skills */
 .skills span{
     display:inline-block;
-    padding:10px 18px;
     border:1px solid #fff;
+    padding:8px 18px;
     border-radius:25px;
-    font-size:14px;
     margin:6px 6px 0 0;
 }
-
-/* Footer */
-footer{
-    text-align:center;
-    padding:40px 0;
-    opacity:0.6;
-}
-
 </style>
 </head>
 
@@ -108,119 +78,113 @@ footer{
 
 <div class="container">
 
-<!-- Header -->
-<section class="glass">
-    <h1>Monika G</h1>
-    <p><strong>B.E - Electronics and Communication Engineering</strong></p>
-    <p>3rd Year Student | Interested in IT & Software Development</p>
-    <p>Email: yourmail@email.com | Phone: +91 XXXXX XXXXX</p>
-    <p>LinkedIn: linkedin.com/in/yourprofile</p>
+<section>
+<h1>Monika G</h1>
+<p><strong>B.E - Electronics and Communication Engineering</strong></p>
+<p>3rd Year Student | Interested in IT & Software Development</p>
+<p>Email: yourmail@email.com | Phone: +91 XXXXX XXXXX</p>
 </section>
 
-<!-- About -->
-<section class="glass">
-    <h2>About Me</h2>
-    <p>
-        Motivated Electronics and Communication Engineering student 
-        passionate about software development and IT solutions.
-        Strong problem-solving mindset with hands-on project experience.
-    </p>
+<section>
+<h2>About Me</h2>
+<p>Motivated ECE student passionate about IT and software development with hands-on IoT project experience.</p>
 </section>
 
-<!-- Education -->
-<section class="glass">
-    <h2>Education</h2>
-    <p><strong>B.E - Electronics and Communication Engineering</strong></p>
-    <p>XYZ Engineering College</p>
-    <p>2023 - 2027</p>
+<section>
+<h2>Skills</h2>
+<div class="skills">
+<span>C</span>
+<span>Python</span>
+<span>Java</span>
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+<span>IoT</span>
+</div>
 </section>
 
-<!-- Skills -->
-<section class="glass">
-    <h2>Technical Skills</h2>
-    <div class="skills">
-        <span>C</span>
-        <span>Python</span>
-        <span>Java</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>IoT</span>
-        <span>Embedded Systems</span>
-    </div>
+<section>
+<h2>Project</h2>
+<p><strong>Smart Home Automation using IoT</strong></p>
+<p>Designed and implemented IoT-based home automation system enabling remote appliance control.</p>
 </section>
-
-<!-- Projects -->
-<section class="glass">
-    <h2>Projects</h2>
-    <p><strong>Smart Home Automation using IoT</strong></p>
-    <ul>
-        <li>Designed IoT-based home automation system.</li>
-        <li>Enabled remote appliance control.</li>
-        <li>Improved energy efficiency and monitoring.</li>
-    </ul>
-</section>
-
-<!-- Certifications -->
-<section class="glass">
-    <h2>Certifications</h2>
-    <ul>
-        <li>Programming Certification</li>
-        <li>IoT Workshop</li>
-        <li>Technical Seminar Participation</li>
-    </ul>
-</section>
-
-<footer>
-    © 2026 Monika G | Portfolio
-</footer>
 
 </div>
 
 <script>
 const frameCount = 240;
-const canvas = document.getElementById('animationCanvas');
-const context = canvas.getContext('2d');
+const canvas = document.getElementById("animationCanvas");
+const context = canvas.getContext("2d");
 
-function resizeCanvas(){
+function setCanvasSize(){
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
-resizeCanvas();
+setCanvasSize();
 
 const images = [];
-const imageSeq = { frame: 0 };
+let imagesLoaded = 0;
 
-for (let i = 1; i <= frameCount; i++) {
-    const img = new Image();
-    const frameNumber = i.toString().padStart(3, '0');
-    img.src = `frames/ezgif-frame-${frameNumber}.jpg`;
-    images.push(img);
+function preloadImages(){
+    for(let i=1;i<=frameCount;i++){
+        const img = new Image();
+        const frameNumber = i.toString().padStart(3,"0");
+        img.src = "frames/ezgif-frame-" + frameNumber + ".jpg";
+
+        img.onload = () => {
+            imagesLoaded++;
+            if(imagesLoaded === 1){
+                drawFrame(0); // draw first frame immediately
+            }
+        };
+
+        images.push(img);
+    }
 }
 
-function render(){
+function drawFrame(index){
+    const img = images[index];
+    if(!img) return;
+
     context.clearRect(0,0,canvas.width,canvas.height);
-    context.drawImage(images[imageSeq.frame],0,0,canvas.width,canvas.height);
+
+    // Cover screen properly
+    const scale = Math.max(
+        canvas.width / img.width,
+        canvas.height / img.height
+    );
+
+    const x = (canvas.width/2) - (img.width/2)*scale;
+    const y = (canvas.height/2) - (img.height/2)*scale;
+
+    context.drawImage(
+        img,
+        x,
+        y,
+        img.width*scale,
+        img.height*scale
+    );
 }
 
-images[0].onload = render;
-
-window.addEventListener('scroll',()=>{
+window.addEventListener("scroll", () => {
     const scrollTop = document.documentElement.scrollTop;
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     const scrollFraction = scrollTop / maxScroll;
+
     const frameIndex = Math.min(
         frameCount - 1,
         Math.floor(scrollFraction * frameCount)
     );
-    imageSeq.frame = frameIndex;
-    requestAnimationFrame(render);
+
+    drawFrame(frameIndex);
 });
 
-window.addEventListener('resize',()=>{
-    resizeCanvas();
-    render();
+window.addEventListener("resize", () => {
+    setCanvasSize();
+    drawFrame(0);
 });
+
+preloadImages();
 </script>
 
 </body>
